@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Regina Sofía - Mi 1er Año</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Fredoka', sans-serif;
+      background:#fff8ef;
+      color:#5b3b1e;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    /* =========================
+       INTRO
+    ========================== */
+
+    .intro{
+      position:fixed;
+      inset:0;
+      background:
+      linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+      url('47b8e183-7da9-4247-93ed-2250a30484c9.png');
+      background-size:cover;
+      background-position:center;
+      z-index:999;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    .intro-content{
+      color:white;
+      animation:fadeIn 1.5s ease;
+    }
+
+    .intro h1{
+      font-family:'Great Vibes', cursive;
+      font-size:4rem;
+      margin-bottom:15px;
+      text-shadow:0 4px 12px rgba(0,0,0,.4);
+    }
+
+    .intro p{
+      font-size:1.2rem;
+      margin-bottom:25px;
+    }
+
+    .enter-btn{
+      background:#ffbfd4;
+      border:none;
+      padding:16px 35px;
+      border-radius:40px;
+      font-size:1.1rem;
+      font-weight:600;
+      color:#5b3b1e;
+      cursor:pointer;
+      transition:.3s;
+      box-shadow:0 8px 20px rgba(0,0,0,.2);
+    }
+
+    .enter-btn:hover{
+      transform:scale(1.05);
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* =========================
+       MAIN
+    ========================== */
+
+    .main{
+      display:none;
+      animation:showMain 1s ease;
+    }
+
+    @keyframes showMain{
+      from{
+        opacity:0;
+      }
+      to{
+        opacity:1;
+      }
+    }
+
+    .hero{
+      padding:30px 20px;
+      text-align:center;
+      background:#fff3e7;
+    }
+
+    .hero img{
+      width:100%;
+      max-width:500px;
+      border-radius:35px;
+      box-shadow:0 10px 30px rgba(0,0,0,.15);
+      border:8px solid white;
+    }
+
+    .title{
+      margin-top:25px;
+    }
+
+    .title h2{
+      font-family:'Great Vibes', cursive;
+      font-size:4rem;
+      color:#7c4b1e;
+    }
+
+    .title p{
+      margin-top:10px;
+      font-size:1.2rem;
+    }
+
+    /* =========================
+       MENSAJE
+    ========================== */
+
+    .message{
+      padding:50px 25px;
+      text-align:center;
+      background:white;
+    }
+
+    .message-box{
+      max-width:700px;
+      margin:auto;
+      background:#fff7f1;
+      padding:35px;
+      border-radius:30px;
+      border:3px dashed #e2b98f;
+      font-size:1.1rem;
+      line-height:1.8;
+    }
+
+    /* =========================
+       EVENTO
+    ========================== */
+
+    .event{
+      padding:60px 25px;
+      background:#fdf1df;
+      text-align:center;
+    }
+
+    .event h3{
+      font-size:2.4rem;
+      margin-bottom:25px;
+      color:#7b4c23;
+    }
+
+    .event-card{
+      max-width:500px;
+      margin:auto;
+      background:white;
+      border-radius:30px;
+      padding:35px;
+      box-shadow:0 8px 25px rgba(0,0,0,.08);
+    }
+
+    .event-item{
+      margin-bottom:25px;
+    }
+
+    .event-item h4{
+      margin-bottom:8px;
+      font-size:1.2rem;
+      color:#b66b2d;
+    }
+
+    .map-btn{
+      display:inline-block;
+      margin-top:15px;
+      background:#ffbfd4;
+      padding:14px 28px;
+      border-radius:40px;
+      color:#5b3b1e;
+      font-weight:bold;
+      transition:.3s;
+    }
+
+    .map-btn:hover{
+      transform:scale(1.05);
+    }
+
+    /* =========================
+       BOTONES FLOTANTES
+    ========================== */
+
+    .floating-buttons{
+      position:fixed;
+      right:18px;
+      bottom:20px;
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+      z-index:90;
+    }
+
+    .animal-btn{
+      width:72px;
+      height:72px;
+      border-radius:50%;
+      border:none;
+      font-size:2rem;
+      cursor:pointer;
+      background:white;
+      box-shadow:0 8px 20px rgba(0,0,0,.18);
+      transition:.3s;
+    }
+
+    .animal-btn:hover{
+      transform:scale(1.08);
+    }
+
+    /* =========================
+       MODAL
+    ========================== */
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.55);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      z-index:9999;
+    }
+
+    .modal-content{
+      width:100%;
+      max-width:500px;
+      background:white;
+      border-radius:30px;
+      padding:30px;
+      position:relative;
+      animation:modalShow .4s ease;
+    }
+
+    @keyframes modalShow{
+      from{
+        opacity:0;
+        transform:scale(.9);
+      }
+      to{
+        opacity:1;
+        transform:scale(1);
+      }
+    }
+
+    .close{
+      position:absolute;
+      top:15px;
+      right:18px;
+      font-size:1.8rem;
+      cursor:pointer;
+    }
+
+    .modal h3{
+      margin-bottom:20px;
+      color:#7b4c23;
+      font-size:2rem;
+    }
+
+    textarea,
+    input{
+      width:100%;
+      border:2px solid #f0d4b7;
+      border-radius:18px;
+      padding:15px;
+      font-size:1rem;
+      margin-bottom:15px;
+      outline:none;
+      font-family:'Fredoka', sans-serif;
+    }
+
+    .send-btn{
+      width:100%;
+      border:none;
+      background:#ffbfd4;
+      padding:15px;
+      border-radius:40px;
+      font-size:1rem;
+      font-weight:bold;
+      cursor:pointer;
+      color:#5b3b1e;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer{
+      padding:50px 20px 90px;
+      text-align:center;
+      background:#fff;
+      color:#8c6a4a;
+    }
+
+    footer h4{
+      font-family:'Great Vibes', cursive;
+      font-size:3rem;
+      margin-bottom:10px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media(max-width:768px){
+
+      .intro h1{
+        font-size:3rem;
+      }
+
+      .title h2{
+        font-size:3rem;
+      }
+
+      .event h3{
+        font-size:2rem;
+      }
+
+      .animal-btn{
+        width:64px;
+        height:64px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- =========================
+       INTRO
+  ========================== -->
+
+  <section class="intro" id="intro">
+
+    <div class="intro-content">
+
+      <h1>Regina Sofía</h1>
+
+      <p>Te invita a celebrar su primer añito 🤍</p>
+
+      <button class="enter-btn" onclick="enterInvitation()">
+        Entrar a la granja 🐴
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- AUDIO CABALLO -->
+  <audio id="horseSound">
+    <source src="https://assets.mixkit.co/active_storage/sfx/212/212-preview.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- AUDIO CERDITO -->
+  <audio id="pigSound">
+    <source src="https://assets.mixkit.co/active_storage/sfx/84/84-preview.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- AUDIO OVEJA -->
+  <audio id="sheepSound">
+    <source src="https://assets.mixkit.co/active_storage/sfx/1161/1161-preview.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- MAIN -->
+  <main class="main" id="main">
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <img src="47b8e183-7da9-4247-93ed-2250a30484c9.png" alt="Regina Sofía">
+
+      <div class="title">
+        <h2>Mi 1er Año</h2>
+        <p>
+          Regina Sofía Santiago Ortega
+        </p>
+      </div>
+
+    </section>
+
+    <!-- MENSAJE -->
+    <section class="message">
+
+      <div class="message-box">
+
+        AQUÍ PODRÁS COLOCAR EL MENSAJE ESPECIAL PARA TUS INVITADOS ✨<br><br>
+
+        Ejemplo:<br><br>
+
+        “Con mucha alegría queremos compartir contigo el primer cumpleaños de nuestra princesa Regina Sofía. Será un día lleno de amor, diversión y muchos animalitos de granja.” 🐷🐴🐑
+
+      </div>
+
+    </section>
+
+    <!-- EVENTO -->
+    <section class="event">
+
+      <h3>Datos del Evento</h3>
+
+      <div class="event-card">
+
+        <div class="event-item">
+          <h4>📅 Fecha</h4>
+          <p>Domingo 28 de Junio</p>
+        </div>
+
+        <div class="event-item">
+          <h4>🕑 Hora</h4>
+          <p>2:00 PM</p>
+        </div>
+
+        <div class="event-item">
+          <h4>📍 Lugar</h4>
+          <p>Casa del tío Tacho</p>
+
+          <a 
+            href="https://maps.app.goo.gl/Qgk3Wr4vYQsUoHgQ9"
+            target="_blank"
+            class="map-btn"
+          >
+            Ver ubicación
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+      <h4>Te esperamos 🤍</h4>
+
+      <p>
+        Ven a celebrar el primer añito de Regina Sofía
+      </p>
+
+    </footer>
+
+  </main>
+
+  <!-- =========================
+       BOTONES FLOTANTES
+  ========================== -->
+
+  <div class="floating-buttons">
+
+    <!-- CERDITO -->
+    <button class="animal-btn" onclick="openModal('wishes');playPig()">
+      🐷
+    </button>
+
+    <!-- OVEJA -->
+    <button class="animal-btn" onclick="openModal('photos');playSheep()">
+      🐑
+    </button>
+
+    <!-- CABALLO -->
+    <button class="animal-btn" onclick="openModal('rsvp');playHorse()">
+      🐴
+    </button>
+
+  </div>
+
+  <!-- =========================
+       MODAL DESEOS
+  ========================== -->
+
+  <div class="modal" id="wishesModal">
+
+    <div class="modal-content">
+
+      <span class="close" onclick="closeModal('wishesModal')">
+        ×
+      </span>
+
+      <h3>Deseos para Regina 💖</h3>
+
+      <textarea rows="6" placeholder="Escribe un bonito mensaje..."></textarea>
+
+      <button class="send-btn">
+        Enviar Deseo
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- =========================
+       MODAL FOTOS
+  ========================== -->
+
+  <div class="modal" id="photosModal">
+
+    <div class="modal-content">
+
+      <span class="close" onclick="closeModal('photosModal')">
+        ×
+      </span>
+
+      <h3>Sube tus fotos 📸</h3>
+
+      <input type="file">
+
+      <button class="send-btn">
+        Subir Foto
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- =========================
+       MODAL RSVP
+  ========================== -->
+
+  <div class="modal" id="rsvpModal">
+
+    <div class="modal-content">
+
+      <span class="close" onclick="closeModal('rsvpModal')">
+        ×
+      </span>
+
+      <h3>Confirmar asistencia 🐴</h3>
+
+      <input type="text" placeholder="Tu nombre">
+
+      <input type="number" placeholder="Número de asistentes">
+
+      <button class="send-btn">
+        Confirmar
+      </button>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function enterInvitation(){
+
+      document.getElementById('horseSound').play();
+
+      document.getElementById('intro').style.display = 'none';
+
+      document.getElementById('main').style.display = 'block';
+
+    }
+
+    function openModal(type){
+
+      if(type === 'wishes'){
+        document.getElementById('wishesModal').style.display = 'flex';
+      }
+
+      if(type === 'photos'){
+        document.getElementById('photosModal').style.display = 'flex';
+      }
+
+      if(type === 'rsvp'){
+        document.getElementById('rsvpModal').style.display = 'flex';
+      }
+
+    }
+
+    function closeModal(id){
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function playPig(){
+      document.getElementById('pigSound').play();
+    }
+
+    function playSheep(){
+      document.getElementById('sheepSound').play();
+    }
+
+    function playHorse(){
+      document.getElementById('horseSound').play();
+    }
+
+    // Cerrar modal al dar clic afuera
+    window.onclick = function(e){
+
+      const modals = document.querySelectorAll('.modal');
+
+      modals.forEach(modal => {
+
+        if(e.target === modal){
+          modal.style.display = 'none';
+        }
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>
