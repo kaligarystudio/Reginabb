@@ -12,7 +12,7 @@ farmAmbient.loop = true;
 ========================== */
 
 function enterInvitation(){
-
+ 
   horseSound.play();
 
   farmAmbient.play();
@@ -20,7 +20,7 @@ function enterInvitation(){
   intro.style.display = 'none';
 
   main.style.display = 'block';
-
+  document.querySelector('.floating-buttons').style.display = 'flex';
   window.scrollTo({
     top:0,
     behavior:'smooth'
