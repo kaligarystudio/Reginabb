@@ -1,0 +1,345 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Fredoka', sans-serif;
+  background:#fff8ef;
+  color:#5b3b1e;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+}
+
+/* =========================
+   INTRO
+========================== */
+
+.intro{
+  position:fixed;
+  inset:0;
+  background:
+  linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+  url('img/regina.jpg');
+  background-size:cover;
+  background-position:center;
+  z-index:999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+
+.intro-content{
+  color:white;
+  animation:fadeIn 1.5s ease;
+}
+
+.intro h1{
+  font-family:'Great Vibes', cursive;
+  font-size:4rem;
+  margin-bottom:15px;
+  text-shadow:0 4px 12px rgba(0,0,0,.4);
+}
+
+.intro p{
+  font-size:1.2rem;
+  margin-bottom:25px;
+}
+
+.enter-btn{
+  background:#ffbfd4;
+  border:none;
+  padding:16px 35px;
+  border-radius:40px;
+  font-size:1.1rem;
+  font-weight:600;
+  color:#5b3b1e;
+  cursor:pointer;
+  transition:.3s;
+  box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+.enter-btn:hover{
+  transform:scale(1.05);
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* =========================
+   MAIN
+========================== */
+
+.main{
+  display:none;
+  animation:showMain 1s ease;
+}
+
+@keyframes showMain{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
+
+.hero{
+  padding:30px 20px;
+  text-align:center;
+  background:#fff3e7;
+}
+
+.hero img{
+  width:100%;
+  max-width:500px;
+  border-radius:35px;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+  border:8px solid white;
+}
+
+.title{
+  margin-top:25px;
+}
+
+.title h2{
+  font-family:'Great Vibes', cursive;
+  font-size:4rem;
+  color:#7c4b1e;
+}
+
+.title p{
+  margin-top:10px;
+  font-size:1.2rem;
+}
+
+/* =========================
+   MENSAJE
+========================== */
+
+.message{
+  padding:50px 25px;
+  text-align:center;
+  background:white;
+}
+
+.message-box{
+  max-width:700px;
+  margin:auto;
+  background:#fff7f1;
+  padding:35px;
+  border-radius:30px;
+  border:3px dashed #e2b98f;
+  font-size:1.1rem;
+  line-height:1.8;
+}
+
+/* =========================
+   EVENTO
+========================== */
+
+.event{
+  padding:60px 25px;
+  background:#fdf1df;
+  text-align:center;
+}
+
+.event h3{
+  font-size:2.4rem;
+  margin-bottom:25px;
+  color:#7b4c23;
+}
+
+.event-card{
+  max-width:500px;
+  margin:auto;
+  background:white;
+  border-radius:30px;
+  padding:35px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.event-item{
+  margin-bottom:25px;
+}
+
+.event-item h4{
+  margin-bottom:8px;
+  font-size:1.2rem;
+  color:#b66b2d;
+}
+
+.map-btn{
+  display:inline-block;
+  margin-top:15px;
+  background:#ffbfd4;
+  padding:14px 28px;
+  border-radius:40px;
+  color:#5b3b1e;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.map-btn:hover{
+  transform:scale(1.05);
+}
+
+/* =========================
+   BOTONES FLOTANTES
+========================== */
+
+.floating-buttons{
+  position:fixed;
+  right:18px;
+  bottom:20px;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  z-index:90;
+}
+
+.animal-btn{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  border:none;
+  font-size:2rem;
+  cursor:pointer;
+  background:white;
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
+  transition:.3s;
+}
+
+.animal-btn:hover{
+  transform:scale(1.08);
+}
+
+/* =========================
+   MODAL
+========================== */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:9999;
+}
+
+.modal-content{
+  width:100%;
+  max-width:500px;
+  background:white;
+  border-radius:30px;
+  padding:30px;
+  position:relative;
+  animation:modalShow .4s ease;
+}
+
+@keyframes modalShow{
+  from{
+    opacity:0;
+    transform:scale(.9);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+.close{
+  position:absolute;
+  top:15px;
+  right:18px;
+  font-size:1.8rem;
+  cursor:pointer;
+}
+
+.modal h3{
+  margin-bottom:20px;
+  color:#7b4c23;
+  font-size:2rem;
+}
+
+textarea,
+input{
+  width:100%;
+  border:2px solid #f0d4b7;
+  border-radius:18px;
+  padding:15px;
+  font-size:1rem;
+  margin-bottom:15px;
+  outline:none;
+  font-family:'Fredoka', sans-serif;
+}
+
+.send-btn{
+  width:100%;
+  border:none;
+  background:#ffbfd4;
+  padding:15px;
+  border-radius:40px;
+  font-size:1rem;
+  font-weight:bold;
+  cursor:pointer;
+  color:#5b3b1e;
+}
+
+/* =========================
+   FOOTER
+========================== */
+
+footer{
+  padding:50px 20px 90px;
+  text-align:center;
+  background:#fff;
+  color:#8c6a4a;
+}
+
+footer h4{
+  font-family:'Great Vibes', cursive;
+  font-size:3rem;
+  margin-bottom:10px;
+}
+
+/* =========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+  .intro h1{
+    font-size:3rem;
+  }
+
+  .title h2{
+    font-size:3rem;
+  }
+
+  .event h3{
+    font-size:2rem;
+  }
+
+  .animal-btn{
+    width:64px;
+    height:64px;
+  }
+
+}
