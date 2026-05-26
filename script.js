@@ -1,81 +1,118 @@
-function enterInvitation(){
+const intro = document.getElementById('intro');
+const main = document.getElementById('main');
 
-  document.getElementById('horseSound').play();
+const horseSound = document.getElementById('horseSound');
 
-  document.getElementById('intro').style.display = 'none';
-
-  document.getElementById('main').style.display = 'block';
-
-}
-
-function openModal(type){
-
-  if(type === 'wishes'){
-    document.getElementById('wishesModal').style.display = 'flex';
-  }
-
-  if(type === 'photos'){
-    document.getElementById('photosModal').style.display = 'flex';
-  }
-
-  if(type === 'rsvp'){
-    document.getElementById('rsvpModal').style.display = 'flex';
-  }
-
-}
-
-function closeModal(id){
-
-  document.getElementById(id).style.display = 'none';
-
-}
-
-function playPig(){
-
-  document.getElementById('pigSound').play();
-
-}
-
-function playSheep(){
-
-  document.getElementById('sheepSound').play();
-
-}
-
-function playHorse(){
-
-  document.getElementById('horseSound').play();
-
-}
-
-// CERRAR MODAL AL DAR CLIC AFUERA
-window.onclick = function(e){
-
-  const modals = document.querySelectorAll('.modal');
-
-  modals.forEach(modal => {
-
-    if(e.target === modal){
-      modal.style.display = 'none';
-    }
-
-    // SONIDO AMBIENTE GRANJA
-const farmAmbient = new Audio(
-  'https://assets.mixkit.co/active_storage/sfx/1241/1241-preview.mp3'
-);
+const farmAmbient = document.getElementById('farmAmbient');
 
 farmAmbient.loop = true;
 
-window.addEventListener('load', () => {
+/* =========================
+   ENTRAR
+========================== */
 
-  document.body.addEventListener('click', () => {
+function enterInvitation(){
 
-    farmAmbient.play();
+  horseSound.play();
 
-  }, { once:true });
+  farmAmbient.play();
 
-});
+  intro.style.display = 'none';
 
+  main.style.display = 'block';
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
   });
+
+}
+
+/* =========================
+   MODAL
+========================== */
+
+const modal = document.getElementById('modal');
+
+const modalBody = document.getElementById('modalBody');
+
+function openModal(type){
+
+  modal.style.display = 'flex';
+
+  if(type === 'wish'){
+
+    modalBody.innerHTML = `
+
+      <h3>Deseos para Regina 💖</h3>
+
+      <textarea 
+        rows="5"
+        placeholder="Escribe un bonito mensaje..."
+      ></textarea>
+
+      <button>
+        Enviar Deseo
+      </button>
+
+    `;
+
+  }
+
+  if(type === 'photo'){
+
+    modalBody.innerHTML = `
+
+      <h3>Sube tus fotos 📸</h3>
+
+      <input type="file">
+
+      <button>
+        Subir Foto
+      </button>
+
+    `;
+
+  }
+
+  if(type === 'rsvp'){
+
+    modalBody.innerHTML = `
+
+      <h3>Confirmar asistencia 🐴</h3>
+
+      <input 
+        type="text"
+        placeholder="Tu nombre"
+      >
+
+      <input 
+        type="number"
+        placeholder="Número de asistentes"
+      >
+
+      <button>
+        Confirmar asistencia
+      </button>
+
+    `;
+
+  }
+
+}
+
+function closeModal(){
+
+  modal.style.display = 'none';
+
+}
+
+window.onclick = function(e){
+
+  if(e.target === modal){
+
+    modal.style.display = 'none';
+
+  }
 
 }
