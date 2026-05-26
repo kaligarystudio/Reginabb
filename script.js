@@ -59,6 +59,23 @@ window.onclick = function(e){
       modal.style.display = 'none';
     }
 
+    // SONIDO AMBIENTE GRANJA
+const farmAmbient = new Audio(
+  'https://assets.mixkit.co/active_storage/sfx/1241/1241-preview.mp3'
+);
+
+farmAmbient.loop = true;
+
+window.addEventListener('load', () => {
+
+  document.body.addEventListener('click', () => {
+
+    farmAmbient.play();
+
+  }, { once:true });
+
+});
+
   });
 
 }
