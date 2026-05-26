@@ -147,9 +147,9 @@ body{
 
 .barn{
   position:absolute;
-  right:2%;
-  bottom:18%;
-  width:160px;
+  right:1%;
+  bottom:14%;
+  width:340px;
   z-index:1;
 }
 
@@ -416,7 +416,7 @@ body{
   display:flex;
   flex-direction:column;
   gap:14px;
-  z-index:999;
+  display:none;
 }
 
 .float-btn{
@@ -502,10 +502,11 @@ body{
     width:92%;
   }
 
-  .barn{
-    width:120px;
-    bottom:18%;
-  }
+ .barn{
+  width:220px;
+  bottom:16%;
+  right:-10px;
+}
 
   .mill{
     width:60px;
