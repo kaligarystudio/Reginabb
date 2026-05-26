@@ -1,3 +1,375 @@
+/* =========================
+   INTRO GRANJA
+========================== */
+
+.intro{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  background:
+  linear-gradient(
+    to bottom,
+    #8fd3ff 0%,
+    #b8e6ff 45%,
+    #86d45c 45%,
+    #76c14c 100%
+  );
+  z-index:999;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+/* =========================
+   SOL
+========================== */
+
+.sun{
+  position:absolute;
+  top:60px;
+  right:90px;
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  background:#ffd54a;
+  box-shadow:0 0 50px #ffd54a;
+}
+
+/* =========================
+   NUBES
+========================== */
+
+.cloud{
+  position:absolute;
+  background:white;
+  border-radius:100px;
+  opacity:.95;
+}
+
+.cloud::before,
+.cloud::after{
+  content:'';
+  position:absolute;
+  background:white;
+  border-radius:50%;
+}
+
+.cloud1{
+  width:170px;
+  height:55px;
+  top:90px;
+  left:100px;
+  animation:cloudMove 18s linear infinite;
+}
+
+.cloud1::before{
+  width:70px;
+  height:70px;
+  top:-30px;
+  left:20px;
+}
+
+.cloud1::after{
+  width:80px;
+  height:80px;
+  top:-35px;
+  right:20px;
+}
+
+.cloud2{
+  width:140px;
+  height:50px;
+  top:170px;
+  right:250px;
+  animation:cloudMove 24s linear infinite;
+}
+
+.cloud2::before{
+  width:60px;
+  height:60px;
+  top:-25px;
+  left:18px;
+}
+
+.cloud2::after{
+  width:65px;
+  height:65px;
+  top:-30px;
+  right:18px;
+}
+
+@keyframes cloudMove{
+
+  0%{
+    transform:translateX(0);
+  }
+
+  50%{
+    transform:translateX(30px);
+  }
+
+  100%{
+    transform:translateX(0);
+  }
+
+}
+
+/* =========================
+   GRANERO
+========================== */
+
+.barn{
+  position:absolute;
+  right:8%;
+  bottom:120px;
+  width:250px;
+  height:220px;
+  background:#d74c43;
+  border:8px solid #fff5ec;
+  border-bottom:none;
+  border-radius:12px;
+}
+
+.barn-roof{
+  position:absolute;
+  top:-85px;
+  left:-18px;
+  width:0;
+  height:0;
+  border-left:140px solid transparent;
+  border-right:140px solid transparent;
+  border-bottom:95px solid #91322b;
+}
+
+.barn-door{
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:90px;
+  height:120px;
+  background:#8d2f27;
+  border:5px solid #fff;
+  border-bottom:none;
+}
+
+.barn-window{
+  position:absolute;
+  top:35px;
+  left:50%;
+  transform:translateX(-50%);
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:white;
+}
+
+/* =========================
+   CERCA
+========================== */
+
+.fence{
+  position:absolute;
+  bottom:100px;
+  left:0;
+  width:100%;
+  height:18px;
+  background:white;
+  box-shadow:
+  0 -25px 0 white;
+}
+
+.fence::before{
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:
+  repeating-linear-gradient(
+    to right,
+    transparent 0 50px,
+    white 50px 62px
+  );
+  top:-40px;
+  height:80px;
+}
+
+/* =========================
+   ANIMALES
+========================== */
+
+.animals{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+.animal{
+  position:absolute;
+  font-size:4rem;
+  animation:bounce 3s ease-in-out infinite;
+}
+
+.cow{
+  left:8%;
+  bottom:100px;
+}
+
+.pig{
+  left:20%;
+  bottom:80px;
+  animation-delay:.5s;
+}
+
+.sheep{
+  right:14%;
+  bottom:70px;
+  animation-delay:1s;
+}
+
+.horse{
+  right:28%;
+  bottom:90px;
+  animation-delay:1.5s;
+}
+
+.chick{
+  left:45%;
+  bottom:110px;
+  font-size:2.8rem;
+}
+
+@keyframes bounce{
+
+  0%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-12px);
+  }
+
+  100%{
+    transform:translateY(0);
+  }
+
+}
+
+/* =========================
+   CONTENIDO
+========================== */
+
+.intro-content{
+  position:relative;
+  z-index:10;
+  max-width:700px;
+  padding:20px;
+}
+
+.wood-sign{
+  background:#f6d3a5;
+  border:8px solid #8a5b2f;
+  border-radius:25px;
+  padding:40px 30px;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+.welcome{
+  display:block;
+  font-size:1.2rem;
+  color:#5f3d1c;
+  margin-bottom:10px;
+}
+
+.intro h1{
+  font-family:'Great Vibes', cursive;
+  font-size:5rem;
+  color:#d64f75;
+  text-shadow:
+  2px 2px 0 white,
+  4px 4px 10px rgba(0,0,0,.2);
+  margin-bottom:15px;
+}
+
+.intro p{
+  font-size:1.3rem;
+  color:#5b3b1e;
+}
+
+.enter-btn{
+  margin-top:30px;
+  background:#ff7fa9;
+  color:white;
+  border:none;
+  padding:18px 45px;
+  border-radius:60px;
+  font-size:1.3rem;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+  transition:.3s;
+}
+
+.enter-btn:hover{
+  transform:scale(1.05);
+}
+
+.sound-text{
+  margin-top:18px;
+  color:#5b3b1e;
+  font-size:1rem;
+}
+
+/* =========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+  .intro h1{
+    font-size:3.5rem;
+  }
+
+  .wood-sign{
+    padding:30px 20px;
+  }
+
+  .barn{
+    width:150px;
+    height:140px;
+    right:5%;
+    bottom:120px;
+  }
+
+  .barn-roof{
+    border-left:85px solid transparent;
+    border-right:85px solid transparent;
+    border-bottom:60px solid #91322b;
+    top:-58px;
+    left:-10px;
+  }
+
+  .animal{
+    font-size:2.8rem;
+  }
+
+  .sun{
+    width:90px;
+    height:90px;
+    right:20px;
+  }
+
+  .cloud1{
+    left:20px;
+  }
+
+}
+
+/* =========================
+   despues
+========================== */
+
 *{
   margin:0;
   padding:0;
