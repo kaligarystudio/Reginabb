@@ -143,7 +143,9 @@ body{
   border-radius:50% 50% 0 0;
 }
 
-/* BARN */
+/* =========================
+   GRANERO
+========================== */
 
 .barn{
   position:absolute;
@@ -153,17 +155,35 @@ body{
   z-index:1;
 }
 
-/* MILL */
+/* =========================
+   MOLINO
+========================== */
 
 .mill{
   position:absolute;
-  left:5%;
-  bottom:23%;
-  width:80px;
-  opacity:.85;
+  left:3%;
+  bottom:20%;
+  width:180px;
+  opacity:.95;
+  z-index:2;
+  animation:spinMill 12s linear infinite;
 }
 
-/* SIGN */
+@keyframes spinMill{
+
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+/* =========================
+   LETRERO
+========================== */
 
 .wood-sign{
   position:relative;
@@ -200,7 +220,9 @@ body{
   line-height:1.5;
 }
 
-/* MESSAGE */
+/* =========================
+   MENSAJE
+========================== */
 
 .intro-message{
   position:relative;
@@ -216,7 +238,9 @@ body{
   box-shadow:0 6px 15px rgba(0,0,0,.15);
 }
 
-/* BUTTON */
+/* =========================
+   BOTÓN
+========================== */
 
 .enter-btn{
   position:relative;
@@ -238,7 +262,9 @@ body{
   transform:scale(1.05);
 }
 
-/* ANIMALS */
+/* =========================
+   ANIMALES
+========================== */
 
 .animal{
   position:absolute;
@@ -298,7 +324,9 @@ body{
 
 }
 
-/* SOUND */
+/* =========================
+   SONIDO
+========================== */
 
 .sound-note{
   position:absolute;
@@ -345,7 +373,9 @@ body{
   font-size:1.1rem;
 }
 
-/* MESSAGE SECTION */
+/* =========================
+   MENSAJE
+========================== */
 
 .message-section{
   padding:50px 20px;
@@ -362,7 +392,9 @@ body{
   border:3px dashed #e6b483;
 }
 
-/* EVENT */
+/* =========================
+   EVENTO
+========================== */
 
 .event-section{
   padding:50px 20px 120px;
@@ -407,16 +439,18 @@ body{
   text-decoration:none;
 }
 
-/* FLOATING */
+/* =========================
+   BOTONES FLOTANTES
+========================== */
 
 .floating-buttons{
   position:fixed;
   right:15px;
   bottom:20px;
-  display:flex;
+  display:none;
   flex-direction:column;
   gap:14px;
-  display:none;
+  z-index:999;
 }
 
 .float-btn{
@@ -430,7 +464,9 @@ body{
   box-shadow:0 8px 20px rgba(0,0,0,.15);
 }
 
-/* MODAL */
+/* =========================
+   MODAL
+========================== */
 
 .modal{
   position:fixed;
@@ -502,14 +538,16 @@ body{
     width:92%;
   }
 
- .barn{
-  width:220px;
-  bottom:16%;
-  right:-10px;
-}
+  .barn{
+    width:220px;
+    bottom:16%;
+    right:-10px;
+  }
 
   .mill{
-    width:60px;
+    width:120px;
+    left:-5px;
+    bottom:22%;
   }
 
   .cow{
