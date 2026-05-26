@@ -1,50 +1,67 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Fredoka', sans-serif;
+  overflow-x:hidden;
+  background:#fff9f3;
+  color:#5c3d21;
+}
+
 /* =========================
-   INTRO GRANJA
+   INTRO
 ========================== */
 
 .intro{
-  position:fixed;
-  inset:0;
+  position:relative;
+  width:100%;
+  height:100vh;
   overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+/* SKY */
+
+.sky{
+  position:absolute;
+  inset:0;
   background:
   linear-gradient(
     to bottom,
-    #8fd3ff 0%,
-    #b8e6ff 45%,
-    #86d45c 45%,
-    #76c14c 100%
+    #8fd8ff 0%,
+    #c6ecff 55%,
+    #86d65b 55%,
+    #78c84b 100%
   );
-  z-index:999;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+  z-index:-5;
 }
 
-/* =========================
-   SOL
-========================== */
+/* SUN */
 
 .sun{
   position:absolute;
-  top:60px;
-  right:90px;
-  width:130px;
-  height:130px;
+  top:50px;
+  right:30px;
+  width:90px;
+  height:90px;
   border-radius:50%;
-  background:#ffd54a;
-  box-shadow:0 0 50px #ffd54a;
+  background:#ffd64d;
+  box-shadow:0 0 40px #ffd64d;
 }
 
-/* =========================
-   NUBES
-========================== */
+/* CLOUDS */
 
 .cloud{
   position:absolute;
   background:white;
   border-radius:100px;
-  opacity:.95;
 }
 
 .cloud::before,
@@ -56,57 +73,57 @@
 }
 
 .cloud1{
-  width:170px;
-  height:55px;
+  width:120px;
+  height:40px;
   top:90px;
-  left:100px;
-  animation:cloudMove 18s linear infinite;
+  left:20px;
+  animation:floatCloud 10s infinite ease-in-out;
 }
 
 .cloud1::before{
-  width:70px;
-  height:70px;
-  top:-30px;
-  left:20px;
+  width:50px;
+  height:50px;
+  top:-20px;
+  left:15px;
 }
 
 .cloud1::after{
-  width:80px;
-  height:80px;
-  top:-35px;
-  right:20px;
+  width:60px;
+  height:60px;
+  top:-25px;
+  right:10px;
 }
 
 .cloud2{
-  width:140px;
+  width:150px;
   height:50px;
-  top:170px;
-  right:250px;
-  animation:cloudMove 24s linear infinite;
+  top:150px;
+  right:30px;
+  animation:floatCloud 14s infinite ease-in-out;
 }
 
 .cloud2::before{
   width:60px;
   height:60px;
   top:-25px;
-  left:18px;
+  left:20px;
 }
 
 .cloud2::after{
-  width:65px;
-  height:65px;
+  width:70px;
+  height:70px;
   top:-30px;
-  right:18px;
+  right:15px;
 }
 
-@keyframes cloudMove{
+@keyframes floatCloud{
 
   0%{
     transform:translateX(0);
   }
 
   50%{
-    transform:translateX(30px);
+    transform:translateX(15px);
   }
 
   100%{
@@ -115,129 +132,154 @@
 
 }
 
-/* =========================
-   GRANERO
-========================== */
+/* GRASS */
+
+.grass{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:38%;
+  background:#7dc54d;
+  border-radius:50% 50% 0 0;
+}
+
+/* BARN */
 
 .barn{
   position:absolute;
-  right:8%;
-  bottom:120px;
-  width:250px;
-  height:220px;
-  background:#d74c43;
-  border:8px solid #fff5ec;
-  border-bottom:none;
-  border-radius:12px;
+  right:2%;
+  bottom:18%;
+  width:160px;
+  z-index:1;
 }
 
-.barn-roof{
+/* MILL */
+
+.mill{
   position:absolute;
-  top:-85px;
-  left:-18px;
-  width:0;
-  height:0;
-  border-left:140px solid transparent;
-  border-right:140px solid transparent;
-  border-bottom:95px solid #91322b;
+  left:5%;
+  bottom:23%;
+  width:80px;
+  opacity:.85;
 }
 
-.barn-door{
-  position:absolute;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:90px;
-  height:120px;
-  background:#8d2f27;
-  border:5px solid #fff;
-  border-bottom:none;
-}
+/* SIGN */
 
-.barn-window{
-  position:absolute;
-  top:35px;
-  left:50%;
-  transform:translateX(-50%);
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  background:white;
-}
-
-/* =========================
-   CERCA
-========================== */
-
-.fence{
-  position:absolute;
-  bottom:100px;
-  left:0;
+.wood-sign{
+  position:relative;
+  z-index:5;
   width:100%;
-  height:18px;
-  background:white;
-  box-shadow:
-  0 -25px 0 white;
+  max-width:340px;
+  background:#f6d0a2;
+  border:6px solid #9b6431;
+  border-radius:25px;
+  padding:22px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
 }
 
-.fence::before{
-  content:'';
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:
-  repeating-linear-gradient(
-    to right,
-    transparent 0 50px,
-    white 50px 62px
-  );
-  top:-40px;
-  height:80px;
+.welcome{
+  display:block;
+  font-size:.95rem;
+  margin-bottom:10px;
 }
 
-/* =========================
-   ANIMALES
-========================== */
-
-.animals{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
+.wood-sign h1{
+  font-family:'Great Vibes', cursive;
+  font-size:3.5rem;
+  color:#ff5d89;
+  line-height:1;
+  margin-bottom:12px;
+  text-shadow:
+  2px 2px 0 white,
+  3px 3px 10px rgba(0,0,0,.15);
 }
+
+.wood-sign p{
+  font-size:1rem;
+  line-height:1.5;
+}
+
+/* MESSAGE */
+
+.intro-message{
+  position:relative;
+  z-index:5;
+  margin-top:18px;
+  background:#ff7ea7;
+  color:white;
+  padding:14px 22px;
+  border-radius:18px;
+  font-size:1rem;
+  max-width:320px;
+  text-align:center;
+  box-shadow:0 6px 15px rgba(0,0,0,.15);
+}
+
+/* BUTTON */
+
+.enter-btn{
+  position:relative;
+  z-index:5;
+  margin-top:20px;
+  border:none;
+  background:#ff5f91;
+  color:white;
+  padding:18px 32px;
+  border-radius:50px;
+  font-size:1.15rem;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 10px 20px rgba(0,0,0,.2);
+  transition:.3s;
+}
+
+.enter-btn:hover{
+  transform:scale(1.05);
+}
+
+/* ANIMALS */
 
 .animal{
   position:absolute;
-  font-size:4rem;
-  animation:bounce 3s ease-in-out infinite;
+  z-index:2;
+  animation:bounce 3s infinite ease-in-out;
 }
 
 .cow{
-  left:8%;
-  bottom:100px;
+  width:140px;
+  left:0;
+  bottom:14%;
 }
 
 .pig{
-  left:20%;
-  bottom:80px;
-  animation-delay:.5s;
-}
-
-.sheep{
-  right:14%;
-  bottom:70px;
-  animation-delay:1s;
+  width:120px;
+  left:15%;
+  bottom:10%;
 }
 
 .horse{
-  right:28%;
-  bottom:90px;
-  animation-delay:1.5s;
+  width:150px;
+  right:0;
+  bottom:13%;
 }
 
-.chick{
-  left:45%;
-  bottom:110px;
-  font-size:2.8rem;
+.sheep{
+  width:120px;
+  right:10%;
+  bottom:6%;
+}
+
+.chicken{
+  width:80px;
+  left:35%;
+  bottom:7%;
+}
+
+.duck{
+  width:70px;
+  left:55%;
+  bottom:7%;
 }
 
 @keyframes bounce{
@@ -247,7 +289,7 @@
   }
 
   50%{
-    transform:translateY(-12px);
+    transform:translateY(-10px);
   }
 
   100%{
@@ -256,200 +298,15 @@
 
 }
 
-/* =========================
-   CONTENIDO
-========================== */
+/* SOUND */
 
-.intro-content{
-  position:relative;
-  z-index:10;
-  max-width:700px;
-  padding:20px;
-}
-
-.wood-sign{
-  background:#f6d3a5;
-  border:8px solid #8a5b2f;
-  border-radius:25px;
-  padding:40px 30px;
-  box-shadow:0 12px 30px rgba(0,0,0,.25);
-}
-
-.welcome{
-  display:block;
-  font-size:1.2rem;
-  color:#5f3d1c;
-  margin-bottom:10px;
-}
-
-.intro h1{
-  font-family:'Great Vibes', cursive;
-  font-size:5rem;
-  color:#d64f75;
-  text-shadow:
-  2px 2px 0 white,
-  4px 4px 10px rgba(0,0,0,.2);
-  margin-bottom:15px;
-}
-
-.intro p{
-  font-size:1.3rem;
-  color:#5b3b1e;
-}
-
-.enter-btn{
-  margin-top:30px;
-  background:#ff7fa9;
-  color:white;
-  border:none;
-  padding:18px 45px;
-  border-radius:60px;
-  font-size:1.3rem;
-  font-weight:600;
-  cursor:pointer;
-  box-shadow:0 10px 25px rgba(0,0,0,.2);
-  transition:.3s;
-}
-
-.enter-btn:hover{
-  transform:scale(1.05);
-}
-
-.sound-text{
-  margin-top:18px;
-  color:#5b3b1e;
-  font-size:1rem;
-}
-
-/* =========================
-   MOBILE
-========================== */
-
-@media(max-width:768px){
-
-  .intro h1{
-    font-size:3.5rem;
-  }
-
-  .wood-sign{
-    padding:30px 20px;
-  }
-
-  .barn{
-    width:150px;
-    height:140px;
-    right:5%;
-    bottom:120px;
-  }
-
-  .barn-roof{
-    border-left:85px solid transparent;
-    border-right:85px solid transparent;
-    border-bottom:60px solid #91322b;
-    top:-58px;
-    left:-10px;
-  }
-
-  .animal{
-    font-size:2.8rem;
-  }
-
-  .sun{
-    width:90px;
-    height:90px;
-    right:20px;
-  }
-
-  .cloud1{
-    left:20px;
-  }
-
-}
-
-/* =========================
-   despues
-========================== */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  font-family:'Fredoka', sans-serif;
-  background:#fff8ef;
-  color:#5b3b1e;
-  overflow-x:hidden;
-}
-
-a{
-  text-decoration:none;
-}
-
-/* =========================
-   INTRO
-========================== */
-
-.intro{
-  position:fixed;
-  inset:0;
-  background:
-  linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-  url('img/regina.jpg');
-  background-size:cover;
-  background-position:center;
-  z-index:999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.sound-note{
+  position:absolute;
+  bottom:15px;
+  font-size:.85rem;
   text-align:center;
-  padding:20px;
-}
-
-.intro-content{
-  color:white;
-  animation:fadeIn 1.5s ease;
-}
-
-.intro h1{
-  font-family:'Great Vibes', cursive;
-  font-size:4rem;
-  margin-bottom:15px;
-  text-shadow:0 4px 12px rgba(0,0,0,.4);
-}
-
-.intro p{
-  font-size:1.2rem;
-  margin-bottom:25px;
-}
-
-.enter-btn{
-  background:#ffbfd4;
-  border:none;
-  padding:16px 35px;
-  border-radius:40px;
-  font-size:1.1rem;
-  font-weight:600;
-  color:#5b3b1e;
-  cursor:pointer;
-  transition:.3s;
-  box-shadow:0 8px 20px rgba(0,0,0,.2);
-}
-
-.enter-btn:hover{
-  transform:scale(1.05);
-}
-
-@keyframes fadeIn{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  color:#5a3d1f;
+  z-index:10;
 }
 
 /* =========================
@@ -458,156 +315,127 @@ a{
 
 .main{
   display:none;
-  animation:showMain 1s ease;
 }
 
-@keyframes showMain{
-  from{
-    opacity:0;
-  }
-  to{
-    opacity:1;
-  }
-}
+/* HERO */
 
 .hero{
-  padding:30px 20px;
+  padding:40px 20px;
   text-align:center;
-  background:#fff3e7;
+  background:#fff4ea;
 }
 
-.hero img{
+.hero-img{
   width:100%;
-  max-width:500px;
-  border-radius:35px;
-  box-shadow:0 10px 30px rgba(0,0,0,.15);
+  max-width:360px;
+  border-radius:30px;
   border:8px solid white;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
 }
 
-.title{
-  margin-top:25px;
-}
-
-.title h2{
+.hero h2{
+  margin-top:20px;
   font-family:'Great Vibes', cursive;
-  font-size:4rem;
-  color:#7c4b1e;
+  font-size:3.5rem;
+  color:#9b5b2f;
 }
 
-.title p{
-  margin-top:10px;
-  font-size:1.2rem;
+.full-name{
+  margin-top:8px;
+  font-size:1.1rem;
 }
 
-/* =========================
-   MENSAJE
-========================== */
+/* MESSAGE SECTION */
 
-.message{
-  padding:50px 25px;
-  text-align:center;
-  background:white;
+.message-section{
+  padding:50px 20px;
 }
 
 .message-box{
   max-width:700px;
   margin:auto;
-  background:#fff7f1;
+  background:#fff4ea;
   padding:35px;
-  border-radius:30px;
-  border:3px dashed #e2b98f;
-  font-size:1.1rem;
-  line-height:1.8;
-}
-
-/* =========================
-   EVENTO
-========================== */
-
-.event{
-  padding:60px 25px;
-  background:#fdf1df;
+  border-radius:25px;
   text-align:center;
+  line-height:1.8;
+  border:3px dashed #e6b483;
 }
 
-.event h3{
-  font-size:2.4rem;
+/* EVENT */
+
+.event-section{
+  padding:50px 20px 120px;
+  background:#fdf1e4;
+}
+
+.event-section h3{
+  text-align:center;
   margin-bottom:25px;
-  color:#7b4c23;
+  font-size:2rem;
 }
 
 .event-card{
   max-width:500px;
   margin:auto;
   background:white;
-  border-radius:30px;
-  padding:35px;
-  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  padding:30px;
+  border-radius:25px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
 .event-item{
-  margin-bottom:25px;
+  display:flex;
+  gap:15px;
+  margin-bottom:22px;
+  align-items:flex-start;
 }
 
-.event-item h4{
-  margin-bottom:8px;
-  font-size:1.2rem;
-  color:#b66b2d;
+.event-item span{
+  font-size:1.6rem;
 }
 
 .map-btn{
-  display:inline-block;
-  margin-top:15px;
-  background:#ffbfd4;
-  padding:14px 28px;
+  display:block;
+  margin-top:10px;
+  text-align:center;
+  background:#ff7ea7;
+  color:white;
+  padding:15px;
   border-radius:40px;
-  color:#5b3b1e;
-  font-weight:bold;
-  transition:.3s;
+  font-weight:600;
+  text-decoration:none;
 }
 
-.map-btn:hover{
-  transform:scale(1.05);
-}
-
-/* =========================
-   BOTONES FLOTANTES
-========================== */
+/* FLOATING */
 
 .floating-buttons{
   position:fixed;
-  right:18px;
+  right:15px;
   bottom:20px;
   display:flex;
   flex-direction:column;
-  gap:15px;
-  z-index:90;
+  gap:14px;
+  z-index:999;
 }
 
-.animal-btn{
-  width:72px;
-  height:72px;
+.float-btn{
+  width:65px;
+  height:65px;
   border-radius:50%;
   border:none;
+  background:white;
   font-size:2rem;
   cursor:pointer;
-  background:white;
-  box-shadow:0 8px 20px rgba(0,0,0,.18);
-  transition:.3s;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
 }
 
-.animal-btn:hover{
-  transform:scale(1.08);
-}
-
-/* =========================
-   MODAL
-========================== */
+/* MODAL */
 
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.55);
+  background:rgba(0,0,0,.5);
   display:none;
   align-items:center;
   justify-content:center;
@@ -617,78 +445,43 @@ a{
 
 .modal-content{
   width:100%;
-  max-width:500px;
+  max-width:420px;
   background:white;
-  border-radius:30px;
-  padding:30px;
+  border-radius:25px;
+  padding:25px;
   position:relative;
-  animation:modalShow .4s ease;
-}
-
-@keyframes modalShow{
-  from{
-    opacity:0;
-    transform:scale(.9);
-  }
-  to{
-    opacity:1;
-    transform:scale(1);
-  }
 }
 
 .close{
   position:absolute;
-  top:15px;
-  right:18px;
-  font-size:1.8rem;
+  right:20px;
+  top:10px;
+  font-size:2rem;
   cursor:pointer;
 }
 
 .modal h3{
   margin-bottom:20px;
-  color:#7b4c23;
-  font-size:2rem;
 }
 
-textarea,
-input{
+.modal input,
+.modal textarea{
   width:100%;
-  border:2px solid #f0d4b7;
-  border-radius:18px;
-  padding:15px;
-  font-size:1rem;
   margin-bottom:15px;
-  outline:none;
+  padding:15px;
+  border-radius:16px;
+  border:2px solid #f0d2b4;
   font-family:'Fredoka', sans-serif;
 }
 
-.send-btn{
+.modal button{
   width:100%;
   border:none;
-  background:#ffbfd4;
+  background:#ff7ea7;
+  color:white;
   padding:15px;
   border-radius:40px;
-  font-size:1rem;
-  font-weight:bold;
-  cursor:pointer;
-  color:#5b3b1e;
-}
-
-/* =========================
-   FOOTER
-========================== */
-
-footer{
-  padding:50px 20px 90px;
-  text-align:center;
-  background:#fff;
-  color:#8c6a4a;
-}
-
-footer h4{
-  font-family:'Great Vibes', cursive;
-  font-size:3rem;
-  margin-bottom:10px;
+  font-weight:600;
 }
 
 /* =========================
@@ -697,21 +490,55 @@ footer h4{
 
 @media(max-width:768px){
 
-  .intro h1{
-    font-size:3rem;
+  .wood-sign{
+    max-width:92%;
   }
 
-  .title h2{
-    font-size:3rem;
+  .wood-sign h1{
+    font-size:2.9rem;
   }
 
-  .event h3{
-    font-size:2rem;
+  .intro-message{
+    width:92%;
   }
 
-  .animal-btn{
-    width:64px;
-    height:64px;
+  .barn{
+    width:120px;
+    bottom:18%;
+  }
+
+  .mill{
+    width:60px;
+  }
+
+  .cow{
+    width:95px;
+    bottom:17%;
+  }
+
+  .pig{
+    width:85px;
+    left:12%;
+  }
+
+  .horse{
+    width:100px;
+  }
+
+  .sheep{
+    width:85px;
+  }
+
+  .chicken{
+    width:55px;
+  }
+
+  .duck{
+    width:50px;
+  }
+
+  .hero h2{
+    font-size:2.8rem;
   }
 
 }
