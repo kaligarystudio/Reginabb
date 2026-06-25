@@ -11,6 +11,7 @@
 
   <title>Regina Sofía | Mi 1er Año</title>
 
+  <!-- FUENTES -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link 
@@ -18,35 +19,47 @@
     rel="stylesheet"
   >
 
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
+  <!-- =========================
+       INTRO GRANJA
+  ========================== -->
+
   <section class="intro" id="intro">
 
+    <!-- CIELO -->
     <div class="sky"></div>
 
+    <!-- SOL -->
     <div class="sun"></div>
 
+    <!-- NUBES -->
     <div class="cloud cloud1"></div>
     <div class="cloud cloud2"></div>
 
+    <!-- PASTO -->
     <div class="grass"></div>
 
+    <!-- GRANERO -->
     <img 
       src="img/barn.png" 
       class="barn"
       alt="Granero"
     >
 
+    <!-- MOLINO -->
     <img 
       src="img/mill.png" 
       class="mill"
       alt="Molino"
     >
 
+    <!-- LETRERO -->
     <div class="wood-sign">
 
       <span class="welcome">
@@ -61,18 +74,21 @@
 
     </div>
 
+    <!-- MENSAJE -->
     <div class="intro-message">
 
       ¡Será un día lleno de alegría, amor y diversión! ✨
 
     </div>
 
+    <!-- BOTÓN -->
     <button class="enter-btn" onclick="enterInvitation()">
 
       Entrar a la granja 🐴
 
     </button>
 
+    <!-- ANIMALES -->
     <img src="img/cow.png" class="animal cow" alt="">
     <img src="img/pig.png" class="animal pig" alt="">
     <img src="img/horse.png" class="animal horse" alt="">
@@ -80,48 +96,34 @@
     <img src="img/chicken.png" class="animal chicken" alt="">
     <img src="img/duck.png" class="animal duck" alt="">
 
+    <!-- SONIDO -->
     <div class="sound-note">
       🔊 Activa el sonido para una mejor experiencia
     </div>
 
   </section>
 
+  <!-- =========================
+       AUDIO
+  ========================== -->
+
   <audio id="horseSound">
-    <source src="https://www.soundjay.com/nature/sounds/horse-whinny-01.mp3" type="audio/mpeg">
+    <source 
+      src="https://assets.mixkit.co/active_storage/sfx/212/212-preview.mp3"
+      type="audio/mpeg"
+    >
   </audio>
 
   <audio id="farmAmbient">
-    <source src="https://www.soundjay.com/nature/sounds/rooster-crowing-01.mp3" type="audio/mpeg">
+    <source 
+      src="https://assets.mixkit.co/active_storage/sfx/1241/1241-preview.mp3"
+      type="audio/mpeg"
+    >
   </audio>
 
-  <audio id="pigSound">
-    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg"> <source src="https://actions.google.com/sounds/v1/animals/pig_grunt.ogg" type="audio/ogg">
-  </audio>
-
-  <audio id="sheepSound">
-    <source src="https://actions.google.com/sounds/v1/animals/sheep_bleat.ogg" type="audio/ogg">
-  </audio>
-
-  <audio id="duckSound">
-    <source src="https://actions.google.com/sounds/v1/animals/duck_quack.ogg" type="audio/ogg">
-  </audio>
-
-  <audio id="donkeySound">
-    <source src="https://actions.google.com/sounds/v1/animals/donkey_braying.ogg" type="audio/ogg">
-  </audio>
-
-  <audio id="chickenSound">
-    <source src="https://actions.google.com/sounds/v1/animals/chicken_cluck.ogg" type="audio/ogg">
-  </audio>
-
-  <audio id="dogSound">
-    <source src="https://actions.google.com/sounds/v1/animals/dog_barking.ogg" type="audio/ogg">
-  </audio>
-
-  <audio id="rabbitSound">
-    <source src="https://actions.google.com/sounds/v1/animals/guinea_pig_chirping.ogg" type="audio/ogg">
-  </audio>
-
+  <!-- =========================
+       CONTENIDO
+  ========================== -->
 
   <main class="main" id="main">
 
@@ -141,6 +143,7 @@
 
     </section>
 
+    <!-- MENSAJE -->
     <section class="message-section">
 
       <div class="message-box">
@@ -151,6 +154,7 @@
 
     </section>
 
+    <!-- EVENTO -->
     <section class="event-section">
 
       <h3>Datos del Evento</h3>
@@ -204,19 +208,29 @@
 
   </main>
 
-  <div class="floating-buttons float-left">
-    <button class="float-btn" onclick="playSound('horse')">🐴</button>
-    <button class="float-btn" onclick="playSound('pig')">🐷</button>
-    <button class="float-btn" onclick="playSound('sheep')">🐑</button>
-    <button class="float-btn" onclick="playSound('duck')">🦆</button>
+  <!-- =========================
+       BOTONES FLOTANTES
+  ========================== -->
+
+  <div class="floating-buttons">
+
+    <button class="float-btn" onclick="openModal('')">
+      🐷
+    </button>
+
+    <button class="float-btn" onclick="openModal('')">
+      🐑
+    </button>
+
+    <button class="float-btn" onclick="openModal('')">
+      🐴
+    </button>
+
   </div>
 
-  <div class="floating-buttons float-right">
-    <button class="float-btn" onclick="playSound('donkey')">🫏</button>
-    <button class="float-btn" onclick="playSound('chicken')">🐔</button>
-    <button class="float-btn" onclick="playSound('dog')">🐶</button>
-    <button class="float-btn" onclick="playSound('rabbit')">🐰</button>
-  </div>
+  <!-- =========================
+       MODAL
+  ========================== -->
 
   <div class="modal" id="modal">
 
@@ -232,6 +246,7 @@
 
   </div>
 
+  <!-- JS -->
   <script src="script.js"></script>
 
 </body>
